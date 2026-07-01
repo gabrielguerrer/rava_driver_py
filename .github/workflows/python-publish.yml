@@ -6,11 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-<<<<<<< HEAD
-name: Upload Python Package
-=======
 name: Publish to PyPI
->>>>>>> 4fcf521 (Update v3.0.0)
 
 on:
   release:
@@ -20,16 +16,6 @@ permissions:
   contents: read
 
 jobs:
-<<<<<<< HEAD
-  deploy:
-
-    runs-on: ubuntu-latest
-    
-    environment:
-      name: pypi
-      url: https://pypi.org/p/rng_rava
-    permissions:
-=======
   publish:
     runs-on: ubuntu-latest
 
@@ -39,25 +25,10 @@ jobs:
 
     permissions:
       contents: read
->>>>>>> 4fcf521 (Update v3.0.0)
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
 
     steps:
     - uses: actions/checkout@v4
-<<<<<<< HEAD
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install build
-    - name: Build package
-      run: python -m build
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@release/v1     
-=======
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -77,4 +48,3 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
           packages-dir: dist/
->>>>>>> 4fcf521 (Update v3.0.0)
