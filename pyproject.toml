@@ -1,9 +1,14 @@
 [build-system]
+<<<<<<< HEAD
 requires = ["setuptools>=61.0"]
+=======
+requires = ["setuptools>=70"]
+>>>>>>> 4fcf521 (Update v3.0.0)
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "rng_rava"
+<<<<<<< HEAD
 version = "2.0.0"
 authors = [
   { name="Gabriel Guerrer", email="gabrielguerrer@gmail.com" },
@@ -18,8 +23,29 @@ dependencies = [
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
+=======
+version = "3.0.0"
+authors = [{name="Gabriel Guerrer"},]
+description = "Python driver for the RAVA RNG device"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyserial",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+>>>>>>> 4fcf521 (Update v3.0.0)
     "Operating System :: OS Independent",
 ]
 
 [project.urls]
+<<<<<<< HEAD
 "Homepage" = "https://github.com/gabrielguerrer/rng_rava_driver_py"
+=======
+Homepage = "https://rava-rng.org"
+Documentation = "https://docs.rava-rng.org"
+Repository = "https://github.com/gabrielguerrer/rava_driver_py"
+Author = "https://gabrielguerrer.com"
+>>>>>>> 4fcf521 (Update v3.0.0)

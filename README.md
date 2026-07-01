@@ -1,5 +1,6 @@
 # RAVA Python Driver
 
+<<<<<<< HEAD
 The [RAVA Python Driver](https://github.com/gabrielguerrer/rng_rava_driver_py) 
 implements the code for communicating with an 
 [RAVA Device](https://github.com/gabrielguerrer/rng_rava) running the 
@@ -24,21 +25,59 @@ of an attached WS2812B LED.
 
 For a deeper understanding of how the driver operates, please refer to the 
 documentation provided within the source files and the provided examples.
+=======
+[![Website](https://img.shields.io/badge/Website-rava--rng.org-blue)](https://rava-rng.org)
+[![Docs](https://img.shields.io/badge/Docs-docs.rava--rng.org-blue)](https://docs.rava-rng.org)
+[![Author](https://img.shields.io/badge/Author-gabrielguerrer.com-blue)](https://gabrielguerrer.com)
+[![Publication](https://img.shields.io/badge/Publication-IEEE_Express-purple)](https://ieeexplore.ieee.org/document/10295491)
+
+[![OS](https://img.shields.io/badge/OS-Windows%20%7C%20Linux%20%7C%20macOS-blue)]()
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)]()
+[![PyPI](https://img.shields.io/pypi/v/rng_rava)](https://pypi.org/project/rng_rava/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+The **RAVA Python Driver** provides a Python interface for communicating with
+[RAVA8](https://github.com/gabrielguerrer/rava8_rng) True Random Number Generator (TRNG) 
+devices running the [RAVA8 Firmware](https://github.com/gabrielguerrer/rava8_rng_firmware).
+
+
+## Features
+
+- USB communication with RAVA8 devices
+- Random bit, byte, integer and floating-point generation
+- TCP relay server supporting simultaneous access by multiple TCP clients
+
+
+## Requirements
+
+- Python 3.11 or later
+- [pyserial](https://github.com/pyserial/pyserial)
+>>>>>>> 4fcf521 (Update v3.0.0)
 
 
 ## Installation
 
+<<<<<<< HEAD
 The driver code is available as the 
 [rng_rava](https://pypi.org/project/rng_rava/) PyPI package. To install it, run:
 
+=======
+The driver is available on PyPI as [rng_rava](https://pypi.org/project/rng_rava/). 
+After creating and activating a Python virtual environment, install it with:
+>>>>>>> 4fcf521 (Update v3.0.0)
 ```
 pip install rng_rava
 ```
 
+<<<<<<< HEAD
 Requirements: [pyserial](https://github.com/pyserial/pyserial), [numpy](https://github.com/numpy/numpy)
 
 
 ## Usage example
+=======
+
+## Usage
+>>>>>>> 4fcf521 (Update v3.0.0)
 
 ```
 import rng_rava as rava
@@ -46,6 +85,7 @@ import rng_rava as rava
 # Find the serial number of the attached RAVA devices
 rava_sns = rava.find_rava_sns()
 
+<<<<<<< HEAD
 # Create a RNG instance and connect to the first device
 rng = rava.RAVA_RNG()
 rng.connect(serial_number=rava_sns[0])
@@ -85,11 +125,35 @@ ints16 = rng.get_rng_int16s(n_ints=100, int_delta=9999)
 
 # Generate 100 32-bit floats ranging between 0 and 1
 floats = rng.get_rng_floats(n_floats=100)
+=======
+# Create a RNG_USB instance and connect to the first device
+rng = rava.RAVA_USB()
+rng.open(rava_sns[0])
+
+# Measure 100 pulse counts
+pc_a, pc_b = rng.gen_pulse_counts(n_counts=100)
+
+# Generate a random bit XORing both cores
+bit = rng.gen_bit(rng_cores=rava.R_RngCores.AB_XOR)
+
+# Generate 100 random bytes in each core
+bytes_a, bytes_b = rng.gen_bytes(n_bytes=100)
+
+# Generate 100 8-bit integers between 0 and 99
+ints8 = rng.gen_int8s(n_ints=100, delta=100)
+
+# Generate 100 16-bit integers between 0 and 999
+ints16 = rng.gen_int16s(n_ints=100, delta=1000)
+
+# Generate 100 32-bit floats ranging between 0 and 1
+floats = rng.gen_floats(n_floats=100)
+>>>>>>> 4fcf521 (Update v3.0.0)
 
 # Close RAVA device
 rng.close()
 ```
 
+<<<<<<< HEAD
 
 ## Modules
 
@@ -153,10 +217,14 @@ python3 -m rng_rava.tk.acq
 <a href="https://github.com/gabrielguerrer/rng_rava_driver_py/blob/main/images/tk_acquisition.png">
 <img src="https://github.com/gabrielguerrer/rng_rava_driver_py/blob/main/images/tk_acquisition.png" width="800">
 </a>
+=======
+Additional examples are available in the `examples/` directory.
+>>>>>>> 4fcf521 (Update v3.0.0)
 
 
 ## Firmware Compatibility
 
+<<<<<<< HEAD
 Regarding the [RAVA Firmware](https://github.com/gabrielguerrer/rng_rava_firmware): 
 - Driver versions v1.1.0 through v1.2.1 are compatible with Firmware v1.0.0
 - Driver versions >= v2.0.0 are compatible with Firmware >= v2.0.0
@@ -167,10 +235,23 @@ Regarding the [RAVA Firmware](https://github.com/gabrielguerrer/rng_rava_firmwar
 - [RAVA Device](https://github.com/gabrielguerrer/rng_rava)
 - [RAVA Firmware](https://github.com/gabrielguerrer/rng_rava_firmware)
 - [RAVA Python Diagnostics](https://github.com/gabrielguerrer/rng_rava_diagnostics_py)
+=======
+| Firmware Version | Driver Version  |
+|------------------|-----------------|
+| v1.0.0           | v1.1.0 – v1.2.1 |
+| ≥ v2.0.0         | ≥ v2.0.0        |
+| ≥ v3.0.0         | ≥ v3.0.0        |
+>>>>>>> 4fcf521 (Update v3.0.0)
 
 
 ## Contact
 
+<<<<<<< HEAD
 gabrielguerrer [at] gmail [dot] com
 
 ![RAVA logo](https://github.com/gabrielguerrer/rng_rava/blob/main/images/rng_rava_logo.png)
+=======
+[gabrielguerrer.com](https://gabrielguerrer.com/en/gabriel/)
+
+[![RAVA logo](https://github.com/gabrielguerrer/rava8_rng/blob/main/images/rng_rava_logo.png)](https://rava-rng.org)
+>>>>>>> 4fcf521 (Update v3.0.0)
