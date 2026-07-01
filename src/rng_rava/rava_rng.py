@@ -11,15 +11,15 @@ The recommended configuration parameters for the RAVA RNG are as follows:
 - PWM boost frequency: 50 kHz
 - PWM boost duty-cycle setting: 20
 
-These PWM boost parameters were determined experimentally by maximizing the avalanche pulse count 
+These PWM boost parameters were determined experimentally by maximizing the avalanche pulse count
 while minimizing current consumption.
 
-The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random 
-number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs 
+The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random
+number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs
 may compromise the entropy of the generated data and are therefore not recommended.
 
 Reference
-Guerrer, G. (2023). Rava: An open hardware true random number generator based on avalanche noise. 
+Guerrer, G. (2023). Rava: An open hardware true random number generator based on avalanche noise.
 IEEE Access, 11, 119568-119583.
 """
 
@@ -137,7 +137,7 @@ class RAVARng():
                          pwm_boost_duty = DEFAULT_PWM_BOOST_DUTY,
                          rng_sampling_interval = DEFAULT_RNG_SAMPLING_INTERVAL_US):
         """
-        Update the RNG configuration using the provided parameters.        
+        Update the RNG configuration using the provided parameters.
         """
         command_id = R_MessageComm.RNG_SET_CONFIG
 
@@ -274,7 +274,7 @@ class RAVARng():
 
         # IO Structure
         data_out_format = '<B'
-        data_in_format = '<B'        
+        data_in_format = '<B'
 
         # Validate Output
         if not(rng_cores < len(R_RngCores)):

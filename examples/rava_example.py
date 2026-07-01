@@ -48,7 +48,7 @@ pc_a, pc_b = rng.gen_pulse_counts(n_counts=100)
 # Generate a random bit XORing both cores
 bit = rng.gen_bit(rng_cores=rava.R_RngCores.AB_XOR)
 
-# Generate 100 random bytes in each core
+# Generate 100 random bytes from each entropy core
 bytes_a, bytes_b = rng.gen_bytes(n_bytes=100)
 
 # Generate 100 8-bit integers between 0 and 99

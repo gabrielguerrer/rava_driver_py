@@ -7,7 +7,7 @@ Distributed under the MIT license - See LICENSE for details
 """
 Test for the RAVA TCP server.
 
-Launches a TCP server process and multiple client threads that simultaneously request random data 
+Launches a TCP server process and multiple client threads that simultaneously request random data
 using different methods (byte streams, bytes, integers, and floats).
 """
 
@@ -173,7 +173,7 @@ def test_rava_tcp():
     finally:
         # Terminate the TCP server process
         p.terminate()
-        
+
         try:
             stdout, stderr = p.communicate(timeout=5)
 

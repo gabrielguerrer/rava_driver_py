@@ -5,11 +5,11 @@ Distributed under the MIT license - See LICENSE for details
 """
 
 """
-This example demonstrates interactive use of the RAVA8 device. It is intended for experimenting 
+This example demonstrates interactive use of the RAVA8 device. It is intended for experimenting
 with and testing the device unique functionalities.
 
-If using Visual Studio Code, press `F6` to start an IPython console. You can then execute the 
-script interactively by placing the cursor on a line (or selecting multiple lines) and pressing 
+If using Visual Studio Code, press `F6` to start an IPython console. You can then execute the
+script interactively by placing the cursor on a line (or selecting multiple lines) and pressing
 `Shift+Enter`.
 """
 
@@ -71,7 +71,7 @@ def PERIPHERALS8():
     rng.periph_d1_delay_us_test(interval_us=7)
     rng.periph_d1_delay_us_test(interval_us=9)
     rng.periph_d1_delay_us_test(interval_us=10)
-    
+
     rng.periph_d3_periodic_trigger_output(on=True, interval_ms=5)
     rng.periph_d3_periodic_trigger_output(on=True, interval_ms=10)
     rng.periph_d3_periodic_trigger_output(on=True, interval_ms=30)

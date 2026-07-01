@@ -66,7 +66,7 @@ class RAVALog:
 
         if isinstance(level, int):
             self.log.setLevel(level)
-            
+
         else:
             self.log.error(f'{self.name} log_level -> Unknown level {level_str}')
 

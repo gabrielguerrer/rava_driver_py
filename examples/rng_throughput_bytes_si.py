@@ -7,8 +7,8 @@ Distributed under the MIT license - See LICENSE for details
 """
 Measures the throughput of random byte generation for different values of sampling interval.
 
-The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random 
-number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs 
+The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random
+number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs
 may compromise the entropy of the generated data and are therefore not recommended.
 """
 
@@ -24,7 +24,7 @@ def rng_bytes_throughput(sampling_interval):
     n_max = rng.rng_gen_max_nbytes_per_core
 
     # Set sampling interval
-    pwmb_freq, pwmb_duty, _ = rng_cfg0    
+    pwmb_freq, pwmb_duty, _ = rng_cfg0
     rng.set_config(pwmb_freq, pwmb_duty, sampling_interval)
 
     # Start timer

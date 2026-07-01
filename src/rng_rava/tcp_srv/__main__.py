@@ -7,10 +7,10 @@ Distributed under the MIT license - See LICENSE for details
 """
 RAVA TCP server.
 
-This utility exposes a locally connected RAVA USB device through a TCP interface, allowing multiple 
+This utility exposes a locally connected RAVA USB device through a TCP interface, allowing multiple
 remote clients to access the device using the RAVA TCP protocol.
 
-The server can be started from the command line with: `python3 -m rng_rava.rcp_srv`. Available 
+The server can be started from the command line with: `python3 -m rng_rava.rcp_srv`. Available
 command-line options and their descriptions can be displayed using the -h or --help flag.
 """
 

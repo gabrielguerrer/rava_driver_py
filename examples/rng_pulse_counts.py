@@ -5,11 +5,11 @@ Distributed under the MIT license - See LICENSE for details
 """
 
 """
-This example demonstrates how the RNG pulse count distribution changes with different values of the 
+This example demonstrates how the RNG pulse count distribution changes with different values of the
 sampling interval configuration.
 
-The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random 
-number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs 
+The recommended sampling interval is 10 µs. Values between 5 µs and 10 µs can increase the random
+number generation throughput at the cost of increased output bias. Sampling intervals below 5 µs
 may compromise the entropy of the generated data and are therefore not recommended.
 """
 

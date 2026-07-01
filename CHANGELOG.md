@@ -1,11 +1,11 @@
 ## v3.0.0
 
-This release introduces a major redesign of the communication layer to support the new firmware 
+This release introduces a major redesign of the communication layer to support the new firmware
 v3.0.0 protocol and network-based access to RAVA devices.
 
 ### Added
 - Support for the new framed binary protocol with an incremental byte-wise state parser
-- Support for TCP communication, enabling multiple remote clients to share a single USB-connected 
+- Support for TCP communication, enabling multiple remote clients to share a single USB-connected
   RAVA device
 - Multi-client TCP relay server
 - New examples demonstrating TCP communication and server usage
@@ -13,11 +13,11 @@ v3.0.0 protocol and network-based access to RAVA devices.
 
 ### Changed
 - Updated to support firmware v3.0.0
-- Improved protocol validation, including CRC verification, payload length validation, and 
+- Improved protocol validation, including CRC verification, payload length validation, and
   structured device error handling
-- Refactored the driver into a transport-independent communication layer shared by the USB and TCP 
+- Refactored the driver into a transport-independent communication layer shared by the USB and TCP
   drivers
-- Improved exception handling by mapping protocol and device errors to dedicated Python exception 
+- Improved exception handling by mapping protocol and device errors to dedicated Python exception
   classes
 - Reorganized the source tree so that each command category is implemented in its own module file
 - Removed the dependency on NumPy
@@ -28,15 +28,15 @@ v3.0.0 protocol and network-based access to RAVA devices.
 
 
 ## v1.2.1
-- Correcting MANIFEST.in with the correct location of the rava logo 
+- Correcting MANIFEST.in with the correct location of the rava logo
 
 
 ## v1.2.0
 - Moving configuration functionality from RAVA_APP to new class RAVA_CFG
 - RAVA_APP parameter rava_class allows to choose between RAVARng or RAVARng_LED
-- Changed RAVA_APP default show_on_startup to True; Avoid macos issue of not showing matplotlib 
+- Changed RAVA_APP default show_on_startup to True; Avoid macos issue of not showing matplotlib
   plots
-- Fixed a bug in get_rng_byte_stream_data() that was returning the same bytes for both A and B 
+- Fixed a bug in get_rng_byte_stream_data() that was returning the same bytes for both A and B
   channels
 - snd_rng_byte_stream_start() now empties the queue data
 

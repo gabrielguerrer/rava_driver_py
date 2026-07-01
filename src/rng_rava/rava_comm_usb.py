@@ -32,13 +32,13 @@ def find_rava_sns(usb_vid=RAVA_USB_VID, usb_pid=RAVA_USB_PID):
     Find connected RAVA USB devices, returning a list of device serial numbers.
     """
 
-    sns = [ 
-        port_info.serial_number for port_info in comports()        
-        if ( 
+    sns = [
+        port_info.serial_number for port_info in comports()
+        if (
             port_info.vid == usb_vid and
             port_info.pid == usb_pid and
-            port_info.serial_number is not None 
-            ) 
+            port_info.serial_number is not None
+            )
         ]
     sns.sort()
     return sns
@@ -52,10 +52,10 @@ class RAVACommUsb(RAVAComm):
     def __init__(self):
         super().__init__()
         self.name = 'RAVACommUsb'
-        self.name_conn = ''        
+        self.name_conn = ''
 
         self.usb = serial.Serial(timeout=COMM_READ_TIMEOUT_S)
-      
+
 
     def is_open(self):
         """
@@ -77,11 +77,11 @@ class RAVACommUsb(RAVAComm):
 
         # Find port associated to SN
         ports = [
-            port_info.device for port_info in comports() 
+            port_info.device for port_info in comports()
             if port_info.serial_number == rava_sn
             ]
-        
-        if not ports:            
+
+        if not ports:
             raise RAVAConnectError(
                 f'{self.name} open -> No device found for SN={rava_sn} :-('
                 )
@@ -97,7 +97,7 @@ class RAVACommUsb(RAVAComm):
         try:
             self.usb.open()
 
-        except serial.SerialException as err:            
+        except serial.SerialException as err:
             raise RAVAConnectError(
                 f'{self.name} open -> Could not open SN={rava_sn} @ {port} :-('
                 ) from err
@@ -152,7 +152,7 @@ class RAVACommUsb(RAVAComm):
 
         # Close device and propagate error
         except (serial.SerialException, OSError) as err:
-            self.close()        
+            self.close()
 
             raise RAVADisconnectedError(
                 f'{self.name} bytes_waiting {self.name_conn} -> Device disconnected :-('

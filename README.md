@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 The **RAVA Python Driver** provides a Python interface for communicating with
-[RAVA8](https://github.com/gabrielguerrer/rava8_rng) True Random Number Generator (TRNG) 
+[RAVA8](https://github.com/gabrielguerrer/rava8_rng) True Random Number Generator (TRNG)
 devices running the [RAVA8 Firmware](https://github.com/gabrielguerrer/rava8_rng_firmware).
 
 
@@ -30,7 +30,7 @@ devices running the [RAVA8 Firmware](https://github.com/gabrielguerrer/rava8_rng
 
 ## Installation
 
-The driver is available on PyPI as [rng_rava](https://pypi.org/project/rng_rava/). 
+The driver is available on PyPI as [rng_rava](https://pypi.org/project/rng_rava/).
 After creating and activating a Python virtual environment, install it with:
 ```
 pip install rng_rava
@@ -55,7 +55,7 @@ pc_a, pc_b = rng.gen_pulse_counts(n_counts=100)
 # Generate a random bit XORing both cores
 bit = rng.gen_bit(rng_cores=rava.R_RngCores.AB_XOR)
 
-# Generate 100 random bytes in each core
+# Generate 100 random bytes from each entropy core
 bytes_a, bytes_b = rng.gen_bytes(n_bytes=100)
 
 # Generate 100 8-bit integers between 0 and 99
@@ -72,6 +72,34 @@ rng.close()
 ```
 
 Additional examples are available in the `examples/` directory.
+
+
+### TCP Communication
+
+The driver also supports communication over TCP through a relay server, allowing one or more remote
+clients to access a locally connected RAVA8 device.
+
+Start the TCP server with:
+```
+python3 -m rng_rava.tcp_srv --host 127.0.0.1 --port 4884
+```
+
+The following example connects to the TCP server and uses the same API as the USB driver:
+```
+import rng_rava as rava
+
+# Connect to the RAVA TCP server
+rng = rava.RAVA8_TCP()
+rng.open('127.0.0.1', 4884)
+
+# Generate 100 random bytes from each entropy core
+bytes_a, bytes_b = rng.gen_bytes(n_bytes=100)
+
+...
+
+# Close the connection
+rng.close()
+```
 
 
 ## Firmware Compatibility

@@ -5,18 +5,18 @@ Distributed under the MIT license - See LICENSE for details
 """
 
 """
-This example demonstrates interactive use of the RAVA device over a TCP connection. It is intended 
+This example demonstrates interactive use of the RAVA device over a TCP connection. It is intended
 for experimenting with and testing the device functionality.
 
-Before running this example, start the RAVA TCP server. From a Python environment with the `rava` 
+Before running this example, start the RAVA TCP server. From a Python environment with the `rava`
 package installed, run:
 ```
 python3 -m rng_rava.tcp_srv --host 127.0.0.1 --port 4884
 ```
 For details see `tcp/__main__.py` and `tcp/rava_tcp_server.py`.
 
-If using Visual Studio Code, press `F6` to start an IPython console. You can then execute the 
-script interactively by placing the cursor on a line (or selecting multiple lines) and pressing 
+If using Visual Studio Code, press `F6` to start an IPython console. You can then execute the
+script interactively by placing the cursor on a line (or selecting multiple lines) and pressing
 `Shift+Enter`.
 """
 

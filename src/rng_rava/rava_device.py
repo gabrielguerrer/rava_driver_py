@@ -202,11 +202,11 @@ class RAVADevice:
 
         # Return Data
         return vcc_v
-    
+
 
     def dev_monitor(self, n_pulse_counts, n_bytes):
         """
-        Retrieve the device monitoring information, including device usage statistics, continuous 
+        Retrieve the device monitoring information, including device usage statistics, continuous
         health-test error counts, and the requested pulse counts and random bytes.
         """
         command_id = R_MessageComm.DEVICE_MONITOR
@@ -235,7 +235,7 @@ class RAVADevice:
         pc_b = array('B', rmsg.rand[1:2*n_pulse_counts:2])
         bytes_a =  array('B', rmsg.rand[2*n_pulse_counts:2*n_pulse_counts + 2*n_bytes:2])
         bytes_b =  array('B', rmsg.rand[2*n_pulse_counts+1:2*n_pulse_counts + 2*n_bytes:2])
-        
+
         # Return Data
         return (request_count, gen_bytes_count), (has_error, nrc_error, nap_error), \
             (pc_a, pc_b), (bytes_a, bytes_b)

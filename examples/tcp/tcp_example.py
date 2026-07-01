@@ -5,7 +5,7 @@ Distributed under the MIT license - See LICENSE for details
 """
 
 """
-Demonstrates how to launch the RAVA TCP server as a subprocess and communicate with it from a TCP 
+Demonstrates how to launch the RAVA TCP server as a subprocess and communicate with it from a TCP
 client that repeatedly requests random bytes.
 """
 

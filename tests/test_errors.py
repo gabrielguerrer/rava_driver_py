@@ -5,7 +5,7 @@ Distributed under the MIT license - See LICENSE for details
 """
 
 """
-Intentionally trigger invalid transport operations and malformed protocol messages to verify that 
+Intentionally trigger invalid transport operations and malformed protocol messages to verify that
 the expected RAVA exceptions are raised.
 """
 
@@ -24,7 +24,7 @@ def send_retrieve_msg(rng, request_id, msg_out_bytes):
     return msg_in
 
 
-def test_transport_errors():  
+def test_transport_errors():
     rng = rava.RAVA_USB()
 
     # RAVAConnectError
@@ -51,7 +51,7 @@ def test_protocol_errors():
         # Open RAVA device
         rng = rava.RAVA_USB()
         rng.open(sns[0])
-        
+
         # INVALID_RAND_LEN
         request_id = 1
         command_id = rava.R_MessageComm.RNG_GEN_BYTES
@@ -63,7 +63,7 @@ def test_protocol_errors():
         try:
             msg_in.validate()
 
-        except Exception as exc:        
+        except Exception as exc:
             assert isinstance(exc, rava.RAVAProtocolError)
             assert 'INVALID_RAND_LEN' in str(exc)
 
@@ -78,10 +78,10 @@ def test_protocol_errors():
         try:
             msg_in.validate()
 
-        except Exception as exc:        
+        except Exception as exc:
             assert isinstance(exc, rava.RAVAProtocolError)
             assert 'INVALID_DATA_LEN' in str(exc)
-        
+
         # INVALID_CRC
         request_id = 3
         command_id = rava.R_MessageComm.RNG_GEN_BYTES
@@ -95,10 +95,10 @@ def test_protocol_errors():
         try:
             msg_in.validate()
 
-        except Exception as exc:        
+        except Exception as exc:
             assert isinstance(exc, rava.RAVAProtocolError)
             assert 'INVALID_CRC' in str(exc)
-        
+
         # INVALID_COMM_ID
         request_id = 4
         command_id = 8
@@ -110,7 +110,7 @@ def test_protocol_errors():
         try:
             msg_in.validate()
 
-        except Exception as exc:        
+        except Exception as exc:
             assert isinstance(exc, rava.RAVAProtocolError)
             assert 'INVALID_COMM_ID' in str(exc)
 
