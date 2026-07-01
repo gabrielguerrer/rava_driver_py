@@ -1,24 +1,9 @@
 """
-<<<<<<< HEAD
-Copyright (c) 2023 Gabriel Guerrer
-=======
 Copyright (c) 2026 Gabriel Guerrer
->>>>>>> 4fcf521 (Update v3.0.0)
 
 Distributed under the MIT license - See LICENSE for details
 """
 
-<<<<<<< HEAD
-__version__ = '2.0.0'
-
-from .rava_defs import *
-from .rava_rng import *
-from .rava_rng_aio import RAVA_RNG_AIO
-from .rava_rng_led import RAVA_RNG_LED
-
-from . import tk
-from . import acq
-=======
 __version__ = '3.0.0'
 
 from .rava_comm import *
@@ -36,4 +21,3 @@ from .rava_tools import *
 
 from .rava8 import *
 from .tcp_srv import *
->>>>>>> 4fcf521 (Update v3.0.0)

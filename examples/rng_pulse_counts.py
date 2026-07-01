@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-'''
-This example showcases RNG pulse count measurements for different values of the
-sampling interval configuration.
-
-This example code is in the public domain.
-Author: Gabriel Guerrer
-'''
-
-import rng_rava as rava
-
-# Find RAVA device and connect
-rng = rava.RAVA_RNG()
-dev_sns = rava.find_rava_sns()
-if len(dev_sns):
-    rng.connect(serial_number=dev_sns[0])
-else:
-    print('No device found')
-    exit()
-
-# Config PWM BOOST
-rng.snd_pwm_boost_setup(freq_id=rava.D_PWM_BOOST_FREQ['50_KHZ'], duty=20)
-
-# Get initial sampling interval
-si0 = rng.get_rng_setup()
-=======
 """
 Copyright (c) 2026 Gabriel Guerrer
 
@@ -51,28 +25,11 @@ rng.open(rava.find_rava_sns()[0])
 
 # Save initial RNG cfg
 rng_cfg0 = rng.get_config()
->>>>>>> 4fcf521 (Update v3.0.0)
 
 # Vary sampling intervals
 sampling_intervals = range(1, 20+1)
 
 for si in sampling_intervals:
-<<<<<<< HEAD
-    rng.snd_rng_setup(sampling_interval_us=si)
-
-    # Measure pulse counts
-    pcs_a, pcs_b = rng.get_rng_pulse_counts(n_counts=5000, output_type='array')
-
-    # Calculate mean values
-    pcs_mean_a = pcs_a.mean()
-    pcs_mean_b = pcs_b.mean()
-
-    # Inform mean values
-    print('\nsi={} us; pc_a={:.2f}, pc_b={:.2f}'.format(si, pcs_mean_a, pcs_mean_b))
-
-# Restore initial sampling interval
-rng.snd_rng_setup(**si0)
-=======
     rng.set_config(
         pwm_boost_freq=PWM_BOOST_FREQ, pwm_boost_duty=PWM_BOOST_DUTY, rng_sampling_interval=si)
 
@@ -98,7 +55,6 @@ rng.snd_rng_setup(**si0)
 
 # Restore initial sampling interval
 rng.set_config(*rng_cfg0)
->>>>>>> 4fcf521 (Update v3.0.0)
 
 # Close device
 rng.close()
